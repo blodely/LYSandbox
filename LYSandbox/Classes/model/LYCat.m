@@ -14,4 +14,8 @@
 	return [[[self fileURL] path] lastPathComponent]; 
 }
 
+- (UIImage *)thumbnail {
+	return nil;
+}
+
 @end

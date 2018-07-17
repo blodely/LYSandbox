@@ -13,4 +13,6 @@
 
 @property (nonatomic, weak, readonly) NSString *filename;
 
+@property (nonatomic, strong) UIImage *thumbnail;
+
 @end
