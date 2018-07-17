@@ -1,0 +1,23 @@
+PODS:
+  - FCFileManager (1.0.20)
+  - LYSandbox (0.1.0):
+    - FCFileManager (~> 1.0.20)
+
+DEPENDENCIES:
+  - LYSandbox (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FCFileManager
+
+EXTERNAL SOURCES:
+  LYSandbox:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FCFileManager: e0f73316e6aa2eb04d2ff4caa75fe7df1ae44270
+  LYSandbox: 2c4a7f138c002e036f50e0e5e37bac6535ab29c1
+
+PODFILE CHECKSUM: f14a6138d06b4393299149e3477549f69400d8e6
+
+COCOAPODS: 1.5.3
