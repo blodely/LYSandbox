@@ -24,7 +24,7 @@ Toolbox to manage sandbox files.
 	#   'LYSandbox' => ['LYSandbox/Assets/*.png']
 	# }
 
-	s.public_header_files = 'Pod/Classes/model/*', 'Pod/Classes/**/*.h'
+	# s.public_header_files = 'Pod/Classes/model/*', 'Pod/Classes/**/*.h'
 	# s.frameworks = 'UIKit', 'MapKit'
 	s.frameworks = 'UIKit'
 
