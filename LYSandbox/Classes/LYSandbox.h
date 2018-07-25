@@ -31,6 +31,14 @@
 
 @interface LYSandbox : NSObject
 
+@property (nonatomic, strong, readonly) NSString *pathDocuments;
+
 + (instancetype)sandbox;
+
+- (NSArray *)boxes;
+
+- (NSArray *)catsInBox:(LYBox *)box;
+
+- (BOOL)existBox:(LYBox *)box;
 
 @end

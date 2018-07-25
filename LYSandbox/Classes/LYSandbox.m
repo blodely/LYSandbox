@@ -53,4 +53,62 @@
 
 // MARK: - METHOD
 
+- (NSArray *)boxes {
+
+	NSMutableArray *boxes = [NSMutableArray arrayWithCapacity:1];
+	for (NSString *item in [FCFileManager listDirectoriesInDirectoryAtPath:self.pathDocuments]) {
+		// VALID FOLDER
+		[boxes addObject:[[LYBox alloc] initWithPath:item]];
+	}
+	
+	if ([boxes count] < 1) {
+		return nil;
+	} else {
+		[boxes sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+	}
+	
+	return [NSArray arrayWithArray:boxes];
+}
+
+- (NSArray *)catsInBox:(LYBox *)box {
+	
+	NSString *pathToRead;
+	
+	if (box == nil) {
+		// CATS OUTSIDE BOX
+		pathToRead = self.pathDocuments;
+	} else {
+		// CATS IN THE BOX
+		if ([self existBox:box] == NO) {
+			NSLog(@"NO BOX : %@", box);
+			return nil;
+		} else  {
+			pathToRead = box.path;
+		}
+	}
+	
+	NSMutableArray *cats = [NSMutableArray arrayWithCapacity:1];
+	for (NSString *item in [FCFileManager listFilesInDirectoryAtPath:pathToRead]) {
+		[cats addObject:[[LYCat alloc] initWithPath:item]];
+	}
+	
+	if ([cats count] < 1) {
+		return nil;
+	} else {
+		[cats sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+	}
+	
+	return [NSArray arrayWithArray:cats];
+}
+
+- (BOOL)existBox:(LYBox *)box {
+	return [FCFileManager isDirectoryItemAtPath:[self.pathDocuments stringByAppendingFormat:@"/%@", box.name]];
+}
+
+// MARK: - PROPERTIES
+
+- (NSString *)pathDocuments {
+	return [NSHomeDirectory() stringByAppendingString:@"/Documents"];
+}
+
 @end
