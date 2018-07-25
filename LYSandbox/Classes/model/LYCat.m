@@ -34,11 +34,12 @@
 	if (self = [super init]) {
 		_path = filepath;
 		_name = [_path lastPathComponent];
+		_filetype = [[_name componentsSeparatedByString:@"."] lastObject];
 	}
 	return self;
 }
 
-// MARK: - METHOD
+// MARK: - PROPERTIES
 
 - (UIImage *)thumbnail {
 	return nil;
@@ -47,7 +48,12 @@
 // MARK: - OVERRIDE
 
 - (NSString *)description {
-	return [NSString stringWithFormat:@"\n\nLYCat\n\tName\t%@\n\tPath\t%@\n", _name, _path];
+	NSMutableString *desc = [[NSMutableString alloc] initWithCapacity:1];
+	[desc appendFormat:@"\nLYCat\n"];
+	[desc appendFormat:@"\tName\t%@\n", _name];
+	[desc appendFormat:@"\tPath\t%@\n", _path];
+	[desc appendFormat:@"\tFiletype\t%@\n", _filetype];
+	return desc;
 }
 
 @end

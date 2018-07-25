@@ -33,6 +33,8 @@
 
 @property (nonatomic, strong, readonly) NSString *path;
 
+@property (nonatomic, strong, readonly) NSString *filetype;
+
 @property (nonatomic, strong) UIImage *thumbnail;
 
 - (instancetype)initWithPath:(NSString *)filepath;
