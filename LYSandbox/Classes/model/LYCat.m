@@ -56,4 +56,37 @@
 	return desc;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)coder {
+	self = [super init];
+	if (self) {
+		_name = [coder decodeObjectForKey:@"_name"];
+		_path = [coder decodeObjectForKey:@"_path"];
+		_filetype = [coder decodeObjectForKey:@"_filetype"];
+		self.thumbnail = [coder decodeObjectForKey:@"self.thumbnail"];
+	}
+
+	return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+	[coder encodeObject:self.name forKey:@"_name"];
+	[coder encodeObject:self.path forKey:@"_path"];
+	[coder encodeObject:self.filetype forKey:@"_filetype"];
+	[coder encodeObject:self.thumbnail forKey:@"self.thumbnail"];
+}
+
+- (id)copyWithZone:(nullable NSZone *)zone {
+	LYCat *copy = (LYCat *)[[[self class] allocWithZone:zone] init];
+
+	if (copy != nil) {
+		copy->_name = _name;
+		copy->_path = _path;
+		copy->_filetype = _filetype;
+		copy.thumbnail = self.thumbnail;
+	}
+
+	return copy;
+}
+
+
 @end

@@ -27,7 +27,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface LYCat : NSObject
+@interface LYCat : NSObject <NSCoding, NSCopying>
 
 @property (nonatomic, strong, readonly) NSString *name;
 
