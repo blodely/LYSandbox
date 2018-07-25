@@ -25,17 +25,66 @@
 //
 
 #import "LYViewController.h"
+#import <LYSandbox/LYSandbox.h>
 
-@interface LYViewController () {}
+@interface LYViewController () <UITableViewDelegate, UITableViewDataSource> {
+	
+	__weak IBOutlet UIButton *btnRefresh;
+	__weak IBOutlet UITableView *tbBox;
+	__weak IBOutlet UITableView *tbCat;
+	
+	NSString *DataCellIdentifier;
+	
+	NSMutableArray *dsBox;
+	NSMutableArray *dsCat;
+}
 
 @end
 
 @implementation LYViewController
 
+// MARK: - ACTION
+
+- (IBAction)refreshButtonPressed:(id)sender {
+
+	[dsBox removeAllObjects];
+	
+	[dsBox addObjectsFromArray:[[LYSandbox sandbox] boxes]];
+	
+	[tbBox reloadData];
+}
+
+- (IBAction)refreshCatsButtonPressed:(UIButton *)sender {
+	
+	[dsCat removeAllObjects];
+	
+	[dsCat addObjectsFromArray:[[LYSandbox sandbox] catsInBox:nil]];
+	
+	[tbCat reloadData];
+}
+
+// MARK: - INIT
+
 - (instancetype)init {
 	if (self = [super initWithNibName:@"LYViewController" bundle:[NSBundle mainBundle]]) {
+		
+		DataCellIdentifier = @"ly.demo.data.cell.identifier";
+		
+		dsBox = [NSMutableArray arrayWithCapacity:1];
+		dsCat = [NSMutableArray arrayWithCapacity:1];
 	}
 	return self;
+}
+
+// MARK: VIEW LIFE CYCLE
+
+- (void)loadView {
+	[super loadView];
+	
+	[tbBox registerClass:[UITableViewCell class] forCellReuseIdentifier:DataCellIdentifier];
+	[tbCat registerClass:[UITableViewCell class] forCellReuseIdentifier:DataCellIdentifier];
+	
+	tbBox.tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 - (void)viewDidLoad {
@@ -46,6 +95,71 @@
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
 	// DISPOSE OF ANY RESOURCES THAT CAN BE RECREATED.
+}
+
+// MARK: - DELEGATE
+
+// MARK: UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)idp {
+	[tableView deselectRowAtIndexPath:idp animated:YES];
+	
+	if (tableView == tbBox) {
+		
+		__weak LYBox *box = dsBox[idp.row];
+		
+		[dsCat removeAllObjects];
+		[dsCat addObjectsFromArray:[[LYSandbox sandbox] catsInBox:box]];
+		[tbCat reloadData];
+		
+	} else if (tableView == tbCat) {
+		
+		__weak LYCat *cat = dsCat[idp.row];
+		NSLog(@"%@", cat);
+	}
+}
+
+// MARK: UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	
+	NSInteger rows = 0;
+	
+	if (tableView == tbBox) {
+		rows = MAX([dsBox count], 0);
+	} else if (tableView == tbCat) {
+		rows = MAX([dsCat count], 0);
+	}
+	
+	return rows;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)idp {
+	
+	if (tableView == tbBox) {
+		
+		__weak LYBox *box = dsBox[idp.row];
+		
+		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:DataCellIdentifier forIndexPath:idp];
+		
+		cell.textLabel.text = box.name;
+		cell.detailTextLabel.text = box.path;
+		
+		return cell;
+		
+	} else if (tableView == tbCat) {
+		
+		__weak LYCat *cat = dsCat[idp.row];
+		
+		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:DataCellIdentifier forIndexPath:idp];
+		
+		cell.textLabel.text = cat.name;
+		cell.detailTextLabel.text = cat.path;
+		
+		return cell;
+	}
+	
+	return nil;
 }
 
 @end
