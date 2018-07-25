@@ -35,10 +35,20 @@
 
 + (instancetype)sandbox;
 
+// MARK: - QUERY
+
 - (NSArray *)boxes;
 
 - (NSArray *)catsInBox:(LYBox *)box;
 
+// MARK: - CHECK
+
 - (BOOL)existBox:(LYBox *)box;
+
+// MARK: - ADD
+
+//- (void)putCat:(LYCat *)cat inBox:(LYBox *)box;
+
+- (void)putBox:(LYBox *)box inBox:(LYBox *)largerBox;
 
 @end

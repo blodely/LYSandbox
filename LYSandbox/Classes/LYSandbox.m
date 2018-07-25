@@ -53,6 +53,8 @@
 
 // MARK: - METHOD
 
+// MARK: QUERY
+
 - (NSArray *)boxes {
 
 	NSMutableArray *boxes = [NSMutableArray arrayWithCapacity:1];
@@ -64,7 +66,7 @@
 	if ([boxes count] < 1) {
 		return nil;
 	} else {
-		[boxes sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+		[boxes sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES],]];
 	}
 	
 	return [NSArray arrayWithArray:boxes];
@@ -95,14 +97,35 @@
 	if ([cats count] < 1) {
 		return nil;
 	} else {
-		[cats sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+		[cats sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES],]];
 	}
 	
 	return [NSArray arrayWithArray:cats];
 }
 
+// MARK: CHECK
+
 - (BOOL)existBox:(LYBox *)box {
 	return [FCFileManager isDirectoryItemAtPath:[self.pathDocuments stringByAppendingFormat:@"/%@", box.name]];
+}
+
+// MARK: ADD
+
+- (void)putCat:(LYCat *)cat inBox:(LYBox *)box {
+	
+	// TODO: DEFINE CAT?
+}
+
+- (void)putBox:(LYBox *)box inBox:(LYBox *)largerBox {
+	
+	if (largerBox == nil) {
+		// PUT IT IN DOCUMENTS FOLDER
+		[FCFileManager createDirectoriesForPath:[NSHomeDirectory() stringByAppendingFormat:@"/Documents/%@", box.name]];
+		return;
+	}
+	
+	// PLACE BOX
+	[FCFileManager createDirectoriesForPath:[largerBox.path stringByAppendingFormat:@"/%@", box.name]];
 }
 
 // MARK: - PROPERTIES
