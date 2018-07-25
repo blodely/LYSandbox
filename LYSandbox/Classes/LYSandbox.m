@@ -35,7 +35,7 @@
 
 // MARK: - INIT
 
-+ (instancetype)box {
++ (instancetype)sandbox {
 	static LYSandbox *sharedBox;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
@@ -51,6 +51,6 @@
 	return self;
 }
 
-// MARK: -
+// MARK: - METHOD
 
 @end

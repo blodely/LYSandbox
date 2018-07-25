@@ -26,9 +26,11 @@
 
 #import <Foundation/Foundation.h>
 #import <LYSandbox/LYBox.h>
+#import <LYSandbox/LYCat.h>
+
 
 @interface LYSandbox : NSObject
 
-+ (instancetype)box;
++ (instancetype)sandbox;
 
 @end
