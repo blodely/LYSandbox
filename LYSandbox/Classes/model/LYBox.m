@@ -30,9 +30,18 @@
 
 @implementation LYBox
 
+- (instancetype)initWithName:(NSString *)boxName {
+	if (self = [super init]) {
+		_name = boxName;
+		_path = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/%@", _name];
+	}
+	return self;
+}
+
 - (instancetype)init {
 	if (self = [super init]) {
-		_path = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/%@", NSStringFromClass([self class])];
+		_name = NSStringFromClass([self class]);
+		_path = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/%@", _name];
 	}
 	return self;
 }
@@ -48,6 +57,12 @@
 
 - (NSUInteger)numberOfFiles {
 	return [[self files] count];
+}
+
+// MARK: - OVERRIDE
+
+- (NSString *)description {
+	return [NSString stringWithFormat:@"\n\nLYBox\n\tName\t%@\n\tPath\t%@\n", _name, _path];
 }
 
 @end

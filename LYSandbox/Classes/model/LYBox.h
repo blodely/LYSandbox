@@ -28,7 +28,11 @@
 
 @interface LYBox : NSObject
 
-@property (nonatomic, strong) NSString *path;
+@property (nonatomic, strong, readonly) NSString *name;
+
+@property (nonatomic, strong, readonly) NSString *path;
+
+- (instancetype)initWithName:(NSString *)boxName;
 
 - (NSArray *)files;
 
