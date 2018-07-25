@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
 	s.description      = <<-DESC
 LYSandbox.
 Toolbox to manage sandbox files.
+Boxes and cats.
 					   DESC
 
 	s.homepage         = 'https://github.com/blodely/LYSandbox'
