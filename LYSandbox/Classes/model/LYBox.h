@@ -34,6 +34,8 @@
 
 - (instancetype)initWithName:(NSString *)boxName;
 
+- (instancetype)initWithPath:(NSString *)boxPath;
+
 - (NSArray *)files;
 
 - (NSUInteger)numberOfFiles;

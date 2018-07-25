@@ -30,10 +30,20 @@
 
 @implementation LYBox
 
+// MARK: - INIT
+
 - (instancetype)initWithName:(NSString *)boxName {
 	if (self = [super init]) {
 		_name = boxName;
 		_path = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/%@", _name];
+	}
+	return self;
+}
+
+- (instancetype)initWithPath:(NSString *)boxPath {
+	if (self = [super init]) {
+		_path = boxPath;
+		_name = [boxPath lastPathComponent];
 	}
 	return self;
 }
@@ -45,6 +55,8 @@
 	}
 	return self;
 }
+
+// MARK: - METHOD
 
 - (NSArray *)files {
 	
