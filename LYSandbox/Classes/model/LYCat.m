@@ -28,12 +28,26 @@
 
 @implementation LYCat
 
-- (NSString *)filename {
-	return [[[self fileURL] path] lastPathComponent]; 
+// MARK: - INIT
+
+- (instancetype)initWithPath:(NSString *)filepath {
+	if (self = [super init]) {
+		_path = filepath;
+		_name = [_path lastPathComponent];
+	}
+	return self;
 }
+
+// MARK: - METHOD
 
 - (UIImage *)thumbnail {
 	return nil;
+}
+
+// MARK: - OVERRIDE
+
+- (NSString *)description {
+	return [NSString stringWithFormat:@"\n\nLYCat\n\tName\t%@\n\tPath\t%@\n", _name, _path];
 }
 
 @end

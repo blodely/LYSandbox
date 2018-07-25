@@ -27,10 +27,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface LYCat : UIDocument
+@interface LYCat : NSObject
 
-@property (nonatomic, weak, readonly) NSString *filename;
+@property (nonatomic, strong, readonly) NSString *name;
+
+@property (nonatomic, strong, readonly) NSString *path;
 
 @property (nonatomic, strong) UIImage *thumbnail;
+
+- (instancetype)initWithPath:(NSString *)filepath;
 
 @end
