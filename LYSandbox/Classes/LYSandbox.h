@@ -33,22 +33,50 @@
 
 @property (nonatomic, strong, readonly) NSString *pathDocuments;
 
+/**
+ singleton
+
+ @return instance
+ */
 + (instancetype)sandbox;
 
 // MARK: - QUERY
 
+/**
+ get boxes in documents folder
+
+ @return array of boxes
+ */
 - (NSArray *)boxes;
 
+/**
+ get all cats in box
+
+ @param box the box to query
+ @return array of cats
+ */
 - (NSArray *)catsInBox:(LYBox *)box;
 
 // MARK: - CHECK
 
+/**
+ check if box exist
+
+ @param box the box to check
+ @return exist or not
+ */
 - (BOOL)existBox:(LYBox *)box;
 
 // MARK: - ADD
 
 //- (void)putCat:(LYCat *)cat inBox:(LYBox *)box;
 
+/**
+ put box in box
+
+ @param box item to be placed
+ @param largerBox container box
+ */
 - (void)putBox:(LYBox *)box inBox:(LYBox *)largerBox;
 
 @end

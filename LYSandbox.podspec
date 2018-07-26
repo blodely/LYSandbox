@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
 	s.summary          = 'LYSandbox is lib for iOS app to use sandbox files.'
 
 	s.description      = <<-DESC
-LYSandbox.
+LYSandbox is lib for iOS app to use sandbox files.
 Toolbox to manage sandbox files.
 Boxes and cats.
 					   DESC
