@@ -72,6 +72,24 @@
 	return [NSArray arrayWithArray:boxes];
 }
 
+- (NSArray *)boxesInBox:(LYBox *)box {
+	
+	NSMutableArray *boxes = [NSMutableArray arrayWithCapacity:1];
+	for (NSString *item in [FCFileManager listDirectoriesInDirectoryAtPath:box.path]) {
+		[boxes addObject:[[LYBox alloc] initWithPath:item]];
+	}
+	
+	if ([boxes count] < 1) {
+		// NONE
+		return nil;
+	} else {
+		// SORT
+		[boxes sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES],]];
+	}
+	
+	return [NSArray arrayWithArray:boxes];
+}
+
 - (NSArray *)catsInBox:(LYBox *)box {
 	
 	NSString *pathToRead;

@@ -50,6 +50,14 @@
 - (NSArray *)boxes;
 
 /**
+ get boxes in specified box
+
+ @param box the box to query
+ @return array of boxes
+ */
+- (NSArray *)boxesInBox:(LYBox *)box;
+
+/**
  get all cats in box
 
  @param box the box to query
