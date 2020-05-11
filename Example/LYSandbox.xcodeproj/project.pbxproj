@@ -300,7 +300,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LYSandbox_Example/Pods-LYSandbox_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-LYSandbox_Example/Pods-LYSandbox_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FCFileManager/FCFileManager.framework",
 				"${BUILT_PRODUCTS_DIR}/LYSandbox/LYSandbox.framework",
 			);
@@ -311,7 +311,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LYSandbox_Example/Pods-LYSandbox_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LYSandbox_Example/Pods-LYSandbox_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A0B366B77B13C14D40998A0F /* [CP] Check Pods Manifest.lock */ = {

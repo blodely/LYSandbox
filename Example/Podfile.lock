@@ -7,7 +7,7 @@ DEPENDENCIES:
   - LYSandbox (from `../`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - FCFileManager
 
 EXTERNAL SOURCES:
@@ -16,8 +16,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FCFileManager: e0f73316e6aa2eb04d2ff4caa75fe7df1ae44270
-  LYSandbox: f34843a817bb530c40254c197e2e6632e24d8837
+  LYSandbox: 2d1618c085951d594ace707761bf44fe2bf1afc9
 
 PODFILE CHECKSUM: f14a6138d06b4393299149e3477549f69400d8e6
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.9.1
