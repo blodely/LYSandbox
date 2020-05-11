@@ -1,13 +1,13 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
 platform :ios, '8.0'
 
 use_frameworks!
 
 target 'LYSandbox_Example' do
-  pod 'LYSandbox', :path => '../'
+	pod 'LYSandbox', :path => '../'
 
-  target 'LYSandbox_Tests' do
-    inherit! :search_paths
-
-    
-  end
+	target 'LYSandbox_Tests' do
+		inherit! :search_paths
+	end
 end
