@@ -31,5 +31,6 @@ Boxes and cats.
 
 	# s.dependency 'AFNetworking', '~> 2.3'
 	s.dependency 'FCFileManager', '~> 1.0.20'
+	s.dependency 'LYCategory'
 
 end
