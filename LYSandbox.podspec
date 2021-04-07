@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
 	s.name             = 'LYSandbox'
-	s.version          = '0.1.0'
+	s.version          = '0.12.0'
 	s.summary          = 'LYSandbox is lib for iOS app to use sandbox files.'
 
 	s.description      = <<-DESC
@@ -17,7 +17,7 @@ Boxes and cats.
 	s.source           = { :git => 'https://github.com/blodely/LYSandbox.git', :tag => s.version.to_s }
 	s.social_media_url = 'https://weibo.com/blodely'
 
-	s.ios.deployment_target = '8.0'
+	s.ios.deployment_target = '9.0'
 
 	s.source_files = 'LYSandbox/Classes/model/*', 'LYSandbox/Classes/**/*'
 
@@ -29,8 +29,7 @@ Boxes and cats.
 	# s.frameworks = 'UIKit', 'MapKit'
 	s.frameworks = 'UIKit'
 
-	# s.dependency 'AFNetworking', '~> 2.3'
-	s.dependency 'FCFileManager', '~> 1.0.20'
-	s.dependency 'LYCategory'
+	s.dependency 'FCFileManager'
+	s.dependency 'LYCategory', '~> 1.12'
 
 end
