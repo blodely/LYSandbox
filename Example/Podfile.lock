@@ -1,9 +1,9 @@
 PODS:
   - FCFileManager (1.0.20)
-  - LYCategory (1.2.44)
-  - LYSandbox (0.1.0):
-    - FCFileManager (~> 1.0.20)
-    - LYCategory
+  - LYCategory (1.12.0)
+  - LYSandbox (0.12.0):
+    - FCFileManager
+    - LYCategory (~> 1.12)
 
 DEPENDENCIES:
   - LYSandbox (from `../`)
@@ -19,9 +19,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FCFileManager: e0f73316e6aa2eb04d2ff4caa75fe7df1ae44270
-  LYCategory: 6d50178f59af079fd9016d3d1b8969f92d09eace
-  LYSandbox: d1252ea2d7f110b3ca3ac784ea008f3b361efe14
+  LYCategory: 8f347904040c575ba421d12be0445236dda940a7
+  LYSandbox: 4b8f2d812b81d0561ccc82a1afa4eee2a38ef587
 
-PODFILE CHECKSUM: fb24fad070065fb6adcee99bbe31aaf485284fd8
+PODFILE CHECKSUM: 8dfb6312541bb95f579f0f2895c5bd2c68cc89ce
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.1
